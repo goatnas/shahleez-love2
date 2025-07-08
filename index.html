@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Shahleez</title>
+    <style>
+        .heart-animation {
+            position: absolute;
+            pointer-events: none;
+            animation: float 4s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f1dc0b1a-2c5e-459d-9a4e-604c45a59893.png') center/cover;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .heart-animation {
+            position: absolute;
+            pointer-events: none;
+            animation: float 4s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+=======
+
+        body::before {
+            content: "❤";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="0" y="50" font-size="20">❤S❤</text></svg>') repeat;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        h1 {
+            color: #ff6b6b;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        #yesBtn {
+            background: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5a80c99c-b8a6-4dc6-8417-2e0056efa968.png') center/cover;
+            color: #ff69b4;
+        }
+
+        #noBtn {
+            background: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/eeab97f2-3fc5-4891-b3e5-405d3948a1c3.png') center/cover;
+            color: white;
+        }
+
+        #okBtn {
+            background-color: #7bed9f;
+            color: white;
+        }
+
+        #heart {
+            width: 200px;
+            margin: 30px auto;
+            display: block;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .final-page {
+            text-align: center;
+        }
+
+        .final-emoji {
+            width: 100px;
+            height: 100px;
+            margin: 30px auto;
+            display: block;
+        }
+
+        .crying-background {
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCZaTDIS1Ab7KB-Ebt5F2iMmvN-I7iYLEwRw&s') center/cover;
+            height: 100vh;
+            position: relative;
+        }
+
+        .thunderstorm {
+            animation: thunder 1s infinite;
+        }
+
+        @keyframes thunder {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Initial Question -->
+    <div id="nameQuestion" class="container">
+        <h1>Is your name Shahleez?</h1>
+        <div class="buttons">
+            <button id="yesBtn">Yes</button>
+            <button id="noBtn">No</button>
+        </div>
+    </div>
+
+    <!-- Love Confirmation -->
+    <div id="loveConfirmation" class="container hidden">
+        <h1>I love you ❤️</h1>
+        <button id="okBtn">OK</button>
+    </div>
+
+    <!-- Do You Love Me Question -->
+    <div id="loveQuestion" class="container hidden">
+        <h1>Do you love me?</h1>
+        <div class="buttons">
+            <button id="loveYes">Yes</button>
+            <button id="loveNo">No</button>
+        </div>
+    </div>
+
+    <!-- Heart Display -->
+    <div id="heartDisplay" class="container hidden">
+        <h1>Here's my heart for you!</h1>
+        <img id="heart" src="https://c8.alamy.com/comp/2BXXHWC/happy-emoji-emoticon-hugging-a-red-heart-2BXXHWC.jpg" alt="Happy emoji hugging a red heart" />
+    </div>
+
+    <!-- Negative Final Page -->
+    <div id="negativeFinal" class="container hidden final-page crying-background thunderstorm">
+        <img class="final-emoji" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCZaTDIS1Ab7KB-Ebt5F2iMmvN-I7iYLEwRw&s" alt="Crying emoji">
+        <h1>Fuck you, I'm sad now 🖕</h1>
+    </div>
+
+    <script>
+        // DOM Elements
+        const nameQuestion = document.getElementById('nameQuestion');
+        const loveConfirmation = document.getElementById('loveConfirmation');
+        const loveQuestion = document.getElementById('loveQuestion');
+        const heartDisplay = document.getElementById('heartDisplay');
+        const negativeFinal = document.getElementById('negativeFinal');
+
+        const nameYes = document.getElementById('yesBtn');
+        const nameNo = document.getElementById('noBtn');
+        const okBtn = document.getElementById('okBtn');
+        const loveYes = document.getElementById('loveYes');
+        const loveNo = document.getElementById('loveNo');
+
+        // Variables
+        let noClickCount = 0;
+
+        // Event Listeners
+        nameNo.addEventListener('click', () => {
+            // Crash the website
+            document.body.innerHTML = '';
+            document.body.style.backgroundColor = 'black';
+            throw new Error("Website crashed because name wasn't Shahleez");
+        });
+
+        nameYes.addEventListener('click', () => {
+            nameQuestion.classList.add('hidden');
+            loveConfirmation.classList.remove('hidden');
+        });
+
+        okBtn.addEventListener('click', () => {
+            loveConfirmation.classList.add('hidden');
+            loveQuestion.classList.remove('hidden');
+        });
+
+        loveYes.addEventListener('click', () => {
+            loveQuestion.classList.add('hidden');
+            heartDisplay.classList.remove('hidden');
+            
+            // Create floating hearts
+            function createHeart() {
+                const heart = document.createElement('div');
+                heart.className = 'heart-animation';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * window.innerWidth + 'px';
+                heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
+                document.body.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 4000);
+            }
+            
+            const heartInterval = setInterval(createHeart, 300);
+            
+            // Clear hearts when leaving page
+            heartDisplay.addEventListener('mouseleave', () => {
+                clearInterval(heartInterval);
+            });
+        });
+
+        loveNo.addEventListener('click', () => {
+            noClickCount++;
+
+            if (noClickCount >= 17) {
+                loveQuestion.classList.add('hidden');
+                negativeFinal.classList.remove('hidden');
+                return;
+            }
+
+            // Randomly move the no button
+            const container = loveQuestion.getBoundingClientRect();
+            const buttonWidth = loveNo.offsetWidth;
+            const buttonHeight = loveNo.offsetHeight;
+
+            const maxX = container.width - buttonWidth;
+            const maxY = container.height - buttonHeight;
+
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            loveNo.style.position = 'absolute';
+            loveNo.style.left = `${randomX}px`;
+            loveNo.style.top = `${randomY}px`;
+
+            // Change button text after 5 clicks
+            if (noClickCount === 5) {
+                loveNo.textContent = 'Really?';
+            } else if (noClickCount === 10) {
+                loveNo.textContent = 'Please say yes!';
+            } else if (noClickCount === 15) {
+                loveNo.textContent = 'Whyyyy??';
+            }
+        });
+    </script>
+</body>
+</html>
